@@ -4,11 +4,16 @@
 // powerCalculator(10,-2) should return exponent should be >= 0
 
 function powerCalculator(intB, intE) {
-  let result = intB;
-
-  for (i = 1; i < intE; i++) {
-      result *= intB
+  if (intE === 0) {
+    return 1;
   }
-  console.log(result)
+
+  if (intE < 0) {
+    return 'your Exponent should be greater than or equal to 0';
+  } 
+  
+  else {
+    return intB * powerCalculator(intB, intE - 1);
+  }
 }
-powerCalculator(10, 3)
+console.log(powerCalculator(10, 3));
